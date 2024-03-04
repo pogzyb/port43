@@ -1,3 +1,7 @@
+[![PyPI version](https://badge.fury.io/py/port43.svg)](https://badge.fury.io/py/whodap)
+![package workflow](https://github.com/pogzyb/port43/actions/workflows/python-package.yml/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 # 🤿 port43
 
 ⚠️ **[work-in-progess]**
@@ -26,7 +30,7 @@ WHOIS is a query and response protocol that is used for querying databases
 that store an Internet resource's registered users or assignees - [Wikipedia](https://en.wikipedia.org/wiki/WHOIS)
 
 Unlike the modern RDAP standard which uses a JSON schema, the format of WHOIS responses follow a semi-free text format. 
-So in other words, WHOIS is "Fragile, unparseable, obsolete... and universally relied upon" - [netmeister.org](https://www.netmeister.org/blog/whois.html)
+So in other words, WHOIS is ["Fragile, unparseable, obsolete... and universally relied upon"](https://www.netmeister.org/blog/whois.html)
 
 In order to parse WHOIS text responses from different registrars into a set of standardized key-value pairs that can be 
 used by applications many open-source libraries have implemented a combination of regular expressions and text mining 
@@ -181,6 +185,82 @@ convert timestamps, fill-in null values, or modify values for a specific use-cas
 
 This whois example is just scratching the surface of what kind of problems LLM's can tackle. 
 Again, the goal of Port43 is to highlight more use-cases and expand AI-first information security workflows. 
+
+#### Basic Agent: Finding DNS Records
+
+```python
+# add some tools
+tools = [DNSTool(), WHOISTool()]
+# get the ReAct prompt
+prompt = get_react_json_prompt(tools, render_args=True)
+# init any LLM; in this example we're using mistral via Ollama
+# figure out how to use Ollama here: https://ollama.com
+llm = ChatOllama(model="mistral", temperature=0)
+# have the model stop after solving the exercise
+chat_model_with_stop = llm.bind(stop=["\nObservation"])
+# create the agent
+agent = (
+    {
+        "input": lambda x: x["input"],
+        "chat_history": lambda x: (
+            _format_chat_history(x["chat_history"]) if x.get("chat_history") else []
+        ),
+        "agent_scratchpad": lambda x: format_log_to_messages(
+            x["intermediate_steps"]
+        ),
+    }
+    | prompt
+    | chat_model_with_stop
+    | ReActJsonSingleInputOutputParser()
+)
+# create an executor
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+pprint(
+    agent_executor.invoke(
+        {
+            "input": "How many DNS records does google.com have? What are the MX records?"
+        }
+    )
+)
+```
+
+<details>
+  <summary>View the Result</summary>
+
+`examples/scripts/basic_react_agent_01.py`
+
+```python
+"""
+> Entering new AgentExecutor chain...
+ Thought: I need to find out how many DNS records google.com has and what its MX records are. I can use the dns_search tool for this.
+Action:```json
+{
+    "action": "dns_search",
+    "action_input": {
+        "hostname": "google.com"
+    }
+}
+```{
+  "A": "142.250.191.142",
+  "NS": "ns4.google.com.",
+  "SOA": "ns1.google.com. dns-admin.google.com. 611883130 900 900 1800 60",
+  "MX": "10 smtp.google.com.",
+  "TXT": "\"apple-domain-verification=30afIBcvSuDV2PLX\"",
+  "AAAA": "2607:f8b0:4009:818::200e",
+  "CAA": "0 issue \"pki.goog\""
+} Observation: The DNS records for google.com include one A record, two NS records, one SOA record, one MX record, one TXT record, one AAAA record, and one CAA record. The MX record is "10 smtp.google.com."
+Thought: I now have the information to answer the original question.
+Final Answer: Google.com has a total of 7 DNS records, including 1 A record, 2 NS records, 1 SOA record, 1 MX record, 1 TXT record, 1 AAAA record, and 1 CAA record. The MX records are "10 smtp.google.com."
+
+> Finished chain.
+{'input': 'How many DNS records does google.com have? What are the MX records?',
+ 'output': 'Google.com has a total of 7 DNS records, including 1 A record, 2 '
+           'NS records, 1 SOA record, 1 MX record, 1 TXT record, 1 AAAA '
+           'record, and 1 CAA record. The MX records are "10 smtp.google.com."'}
+"""
+```
+
+</details>
 
 #### Advanced use-case: Threat Hunting using Natural Language
 

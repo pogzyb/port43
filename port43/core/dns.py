@@ -2,7 +2,6 @@ import json
 
 from dns.resolver import resolve
 
-
 dns_record_types: list[str] = [
     "NONE",
     "A",
@@ -87,7 +86,3 @@ def get_dns(hostname: str) -> str:
             continue
 
     return json.dumps(records, indent=2)
-
-
-if __name__ == "__main__":
-    print(get_dns("google.com"))

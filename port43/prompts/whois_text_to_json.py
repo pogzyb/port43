@@ -2,7 +2,6 @@ from textwrap import dedent
 
 from langchain.prompts import PromptTemplate
 
-
 WhoisTextToJson = PromptTemplate(
     input_variables=["data"],
     template=dedent(

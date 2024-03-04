@@ -1,8 +1,5 @@
-import subprocess
 import shutil
-
-# import json
-# from datetime import datetime
+import subprocess
 
 from asyncwhois import whois, aio_whois
 
