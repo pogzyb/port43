@@ -7,7 +7,7 @@ from langchain.callbacks.manager import (
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
 
-from src.port43.core.whois import get_whois, aget_whois
+from port43.core.whois import get_whois, aget_whois
 
 
 class WHOISQueryInput(BaseModel):

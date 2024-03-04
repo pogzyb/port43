@@ -7,7 +7,7 @@ from langchain.callbacks.manager import (
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
 
-from src.port43.core.dns import get_dns
+from port43.core.dns import get_dns
 
 
 class DNSQueryInput(BaseModel):
