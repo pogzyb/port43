@@ -5,7 +5,7 @@ import asyncwhois
 from langchain_community.llms import HuggingFaceHub
 from langchain_community.chat_models import ChatHuggingFace
 from langchain_core.output_parsers import StrOutputParser
-from src.port43 import WhoisTextToJson
+from port43.prompts import WhoisTextToJson
 
 # Don't want to make a HuggingFace account? You could also use Ollama locally.
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")

@@ -5,8 +5,8 @@ from langchain.agents.output_parsers import ReActJsonSingleInputOutputParser
 from langchain.agents.format_scratchpad import format_log_to_messages
 from langchain.schema import AIMessage, HumanMessage
 from langchain_community.chat_models import ChatOllama
-from src.port43 import get_react_json_prompt
-from src.port43.tools import DNSTool, WHOISTool
+from port43.prompts import get_react_json_prompt
+from port43.tools import DNSTool, WHOISTool
 
 # This example is the same as basic_react_agent_00.py,
 # the only difference is the "input"
