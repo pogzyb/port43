@@ -10,7 +10,7 @@ A set of open-source Information Security tools for the 🦜🔗 LangChain frame
 
 ### Premise
 
-Port43's mission is to help you build information security based Large Language Model applications 
+Port43 can help you build Information Security-based LLM applications.
 
 A few use-cases include ...
 - Enabling Threat and SOC Analysts to query SIEM's using natural language
