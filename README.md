@@ -112,74 +112,70 @@ was able to match all keys/values on its own. Further processing could be added 
 convert timestamps, fill-in null values, or modify values for a specific use-case.
 
 ```json
- '{\n'
- '  "admin_address": "University of Michigan -- ITD\\nITCS, Arbor Lakes\\n4251 '
- 'Plymouth Road\\nAnn Arbor, MI 48105-2785\\nUSA",\n'
- '  "admin_city": "Ann Arbor",\n'
- '  "admin_country": "USA",\n'
- '  "admin_email": "domainreg@umich.edu",\n'
- '  "admin_fax": "+1.7347641817",\n'
- '  "admin_id": "",\n'
- '  "admin_name": "",\n'
- '  "admin_organization": "University of Michigan -- ITD",\n'
- '  "admin_phone": "+1.7347641817",\n'
- '  "admin_state": "",\n'
- '  "admin_zipcode": "48105-3640",\n'
- '  "billing_address": "University of Michigan -- ITD\\nITCS, Arbor '
- 'Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-3640\\nUSA",\n'
- '  "billing_city": "Ann Arbor",\n'
- '  "billing_country": "USA",\n'
- '  "billing_email": "",\n'
- '  "billing_fax": "+1.7347641817",\n'
- '  "billing_id": "",\n'
- '  "billing_name": "",\n'
- '  "billing_organization": "University of Michigan -- ITD",\n'
- '  "billing_phone": "+1.7347641817",\n'
- '  "billing_state": "",\n'
- '  "billing_zipcode": "48105-3640",\n'
- '  "created": "07-Oct-1985",\n'
- '  "dnssec": "",\n'
- '  "domain_name": "UMICH.EDU",\n'
- '  "expires": "31-Jul-2024",\n'
- '  "name_servers": [\n'
- '    "UMICH-EDU.DNS.UMICH.ORG",\n'
- '    "UMICH-EDU.DNS.UMICH.NET",\n'
- '    "UMICH-EDU.DNS.UMICH.COM"\n'
- '  ],\n'
- '  "registrant_address": "University of Michigan -- ITD\\nITCS, Arbor '
- 'Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-2785\\nUSA",\n'
- '  "registrant_city": "Ann Arbor",\n'
- '  "registrant_country": "USA",\n'
- '  "registrant_email": "",\n'
- '  "registrant_fax": "+1.7347641817",\n'
- '  "registrant_id": "",\n'
- '  "registrant_name": "",\n'
- '  "registrant_organization": "University of Michigan -- ITD",\n'
- '  "registrant_phone": "+1.7347641817",\n'
- '  "registrant_state": "",\n'
- '  "registrant_zipcode": "48105-2785",\n'
- '  "registrar": "",\n'
- '  "registrar_abuse_email": "",\n'
- '  "registrar_abuse_phone": "",\n'
- '  "registrar_iana_id": "",\n'
- '  "registrar_url": "",\n'
- '  "status": [\n'
- '    "active"\n'
- '  ],\n'
- '  "tech_address": "University of Michigan\\nITS, Arbor Lakes\\n4251 Plymouth '
- 'Road\\nAnn Arbor, MI 48105-3640\\nUSA",\n'
- '  "tech_city": "Ann Arbor",\n'
- '  "tech_country": "USA",\n'
- '  "tech_email": "",\n'
- '  "tech_fax": "+1.7347641817",\n'
- '  "tech_id": "",\n'
- '  "tech_name": "",\n'
- '  "tech_organization": "University of Michigan",\n'
- '  "tech_phone": "+1.7347641817",\n'
- '  "tech_state": "",\n'
- '  "tech_zipcode": "48105-3640",\n'
- '  "updated": "04-Jan-2024"\n'
- '}\n'
+{
+  "admin_address": "University of Michigan -- ITD\\nITCS, Arbor Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-2785\\nUSA",
+  "admin_city": "Ann Arbor",
+  "admin_country": "USA",
+  "admin_email": "domainreg@umich.edu",
+  "admin_fax": "+1.7347641817",
+  "admin_id": "",
+  "admin_name": "",
+  "admin_organization": "University of Michigan -- ITD",
+  "admin_phone": "+1.7347641817",
+  "admin_state": "",
+  "admin_zipcode": "48105-3640",
+  "billing_address": "University of Michigan -- ITD\\nITCS, Arbor Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-3640\\nUSA",
+  "billing_city": "Ann Arbor",
+  "billing_country": "USA",
+  "billing_email": "",
+  "billing_fax": "+1.7347641817",
+  "billing_id": "",
+  "billing_name": "",
+  "billing_organization": "University of Michigan -- ITD",
+  "billing_phone": "+1.7347641817",
+  "billing_state": "",
+  "billing_zipcode": "48105-3640",
+  "created": "07-Oct-1985",
+  "dnssec": "",
+  "domain_name": "UMICH.EDU",
+  "expires": "31-Jul-2024",
+  "name_servers": [
+    "UMICH-EDU.DNS.UMICH.ORG",
+    "UMICH-EDU.DNS.UMICH.NET",
+    "UMICH-EDU.DNS.UMICH.COM"
+  ],
+  "registrant_address": "University of Michigan -- ITD\\nITCS, Arbor Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-2785\\nUSA",
+  "registrant_city": "Ann Arbor",
+  "registrant_country": "USA",
+  "registrant_email": "",
+  "registrant_fax": "+1.7347641817",
+  "registrant_id": "",
+  "registrant_name": "",
+  "registrant_organization": "University of Michigan -- ITD",
+  "registrant_phone": "+1.7347641817",
+  "registrant_state": "",
+  "registrant_zipcode": "48105-2785",
+  "registrar": "",
+  "registrar_abuse_email": "",
+  "registrar_abuse_phone": "",
+  "registrar_iana_id": "",
+  "registrar_url": "",
+  "status": [
+    "active"
+  ],
+  "tech_address": "University of Michigan\\nITS, Arbor Lakes\\n4251 Plymouth Road\\nAnn Arbor, MI 48105-3640\\nUSA",
+  "tech_city": "Ann Arbor",
+  "tech_country": "USA",
+  "tech_email": "",
+  "tech_fax": "+1.7347641817",
+  "tech_id": "",
+  "tech_name": "",
+  "tech_organization": "University of Michigan",
+  "tech_phone": "+1.7347641817",
+  "tech_state": "",
+  "tech_zipcode": "48105-3640",
+  "updated": "04-Jan-2024"
+}
 ```
 </details>
 
