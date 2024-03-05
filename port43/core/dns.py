@@ -80,7 +80,15 @@ def get_dns(hostname: str) -> str:
         try:
             results = resolve(hostname, record_type)
             for record_data in results:
-                records[record_type] = str(record_data)
+                existing_data = records.get(record_type)
+                if existing_data is not None:
+                    records[record_type] = (
+                        [record_data, existing_data]
+                        if isinstance(existing_data, str)
+                        else [record_data] + existing_data
+                    )
+                else:
+                    records[record_type] = str(record_data)
         except:
             # no record type found for this hostname
             continue
