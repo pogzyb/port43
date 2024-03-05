@@ -5,6 +5,9 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["port43"]
 
+[tool.hatch.version]
+path = "port43/__init__.py"
+
 [project]
 name = "port43"
 dynamic = ["version"]
@@ -13,9 +16,8 @@ authors = [
 ]
 license = {file = "LICENSE"}
 dependencies = [
-    "transformers",
-    "langchain",
     "asyncwhois",
+    "langchain",
 ]
 description = "A set of open-source Information Security tools for the 🦜🔗 LangChain framework"
 readme = "README.md"

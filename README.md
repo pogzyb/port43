@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/port43.svg)](https://badge.fury.io/py/whodap)
+[![PyPI version](https://badge.fury.io/py/port43.svg)](https://badge.fury.io/py/port43)
 ![package workflow](https://github.com/pogzyb/port43/actions/workflows/python-package.yml/badge.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
